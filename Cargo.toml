@@ -1,0 +1,20 @@
+[package]
+name = "tokenizers-sys"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "tokenizers_sys"
+crate-type = ["cdylib"]
+
+[dependencies]
+serde = { version = "1.0", features = [ "rc", "derive" ]}
+serde_json = "1.0"
+tokenizers = { version = "0.21", features = ["http"] }
+
+[build-dependencies]
+cbindgen = "0.28.0"
+
+[dev-dependencies]
+anyhow = "1.0.95"
+

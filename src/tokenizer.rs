@@ -226,7 +226,6 @@ mod tests {
     use std::io::Read;
     use std::ptr;
 
-    // Helper function to create test tokenizer
     fn create_test_tokenizer() -> *mut TokenizerHandle {
         let model = CString::new("bert-base-uncased").unwrap();
         unsafe { tokenizer_from_pretrained(model.as_ptr(), ptr::null()) }

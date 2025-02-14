@@ -2,7 +2,7 @@
 cargo build --release
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 clang -arch arm64 \
-    examples/tokenize.c \
+    examples/c/tokenize.c \
     -Wall \
     -Wextra \
     -L target/release \

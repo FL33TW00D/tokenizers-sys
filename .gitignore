@@ -2,3 +2,11 @@ debug/
 target/
 tokenize
 resources/
+.zig-cache/
+zig-out/
+/release/
+/debug/
+/build/
+/build-*/
+/docgen_tmp/
+**/*.dylib

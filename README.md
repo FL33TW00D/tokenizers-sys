@@ -18,6 +18,10 @@ If we _carefully_ expose this via a C interface, we can be reasonably certain th
 ## Getting Started
 
 Run `compile_ex.sh` on ARM Macs to tokenize some text in C!
+Try `zig build run` inside `/examples/zig` to tokenize some text from Zig!
+
+The possibilities are endless! Which self respecting languages _don't_ have a C interop?
+
 
 ## TODO
 - [ ] Cross-compiling build system (Makefile or Zig)

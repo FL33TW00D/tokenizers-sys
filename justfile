@@ -42,4 +42,10 @@ zig-example: build
 run-zig: zig-example
     cd examples/zig && ./zig-out/bin/tokenizer-example
 
+kotlin-example: build
+    cd examples/kotlin && gradle compileJni build
+
+run-kotlin: kotlin-example
+    cd examples/kotlin && gradle run
+
 

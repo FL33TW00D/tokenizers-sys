@@ -11,3 +11,6 @@ zig-out/
 /docgen_tmp/
 **/*.dylib
 tokenizers-go-example
+**/build
+examples/kotlin/build
+examples/kotlin/.gradle

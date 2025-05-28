@@ -1,4 +1,4 @@
-#include "../bindings/ctokenizers.h"
+#include "../../bindings/ctokenizers.h"
 #include <stdio.h>
 #include <stdlib.h>
 

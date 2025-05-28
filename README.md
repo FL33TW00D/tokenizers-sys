@@ -40,3 +40,9 @@ C is the lingua franca of programming, with almost every modern language offerin
 Going from `Rust -> C` is starting off a safe foundation, judicious implementation of a C FFI allows other languages to
 use the library without needing to reimplement it in their own language.
 
+
+## References
+
+- [Go](https://karthikkaranth.me/blog/calling-c-code-from-go/)
+- [Java](https://nachtimwald.com/2017/06/06/wrapping-a-c-library-in-java/) 
+- [Kotlin](https://kotlinlang.org/docs/native-c-interop.html#bindings)

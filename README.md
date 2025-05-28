@@ -1,34 +1,41 @@
 # tokenizers-sys
 
-Surfacing `tokenizers` to the world via C.
+          ┌───────────────────────────┐
+          │                           │
+          │     Original Rust         │
+          │     Implementation        │
+          │                           │
+          └─────────────┬─────────────┘
+                        │
+                        │
+                        ▼
+          ┌───────────────────────────┐
+          │                           │
+          │       FFI Layer           │
+          │     (C Interface)         │
+          │                           │
+          └─────────────┬─────────────┘
+                        │
+                        │
+    ┌─────────┼─────────┼─────────┬────────────┐
+    │         │         │         │            │
+    ▼         ▼         ▼         ▼            ▼
+┌─────────┐ ┌─────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐
+│   Zig   │ │ Go  │ │  Java   │ │  Swift  │ │ Kotlin  │
+└─────────┘ └─────┘ └─────────┘ └─────────┘ └─────────┘
+
 
 ## ⚠️ EXPERIMENTAL WARNING
 
-**This is an experimental implementation.** 
-**It is extremely unsafe and most likely buggy!**
+> ** This is NOT an official HuggingFace library.**
+> **This is an experimental implementation.** 
+> **It is extremely unsafe and most likely buggy!**
 
-## Reasoning
+## Thesis 
 
-C is the lingua franca of programming. Almost every language has some kind of C interop.
-`Tokenizers` is a foundational library, it is a shame to see it only usable via `Rust` and `Python`.
+C is the lingua franca of programming, with almost every modern language offering some kind of C interop.
+`Tokenizers` is a foundational library, and more languages should be able to use it.
 
-Going from `Rust -> C` is starting off a fully safe foundation.
-If we _carefully_ expose this via a C interface, we can be reasonably certain that it is safe (in contrast to going `C -> Rust`)
+Going from `Rust -> C` is starting off a safe foundation, judicious implementation of a C FFI allows other languages to
+use the library without needing to reimplement it in their own language.
 
-## Getting Started
-
-Run `compile_ex.sh` on ARM Macs to tokenize some text in C!
-Try `zig build run` inside `/examples/zig` to tokenize some text from Zig!
-
-The possibilities are endless! Which self respecting languages _don't_ have a C interop?
-
-
-## TODO
-- [ ] Cross-compiling build system (Makefile or Zig)
-- [x] Tokenizer
-- [ ] Decoders
-- [ ] Encoding
-- [ ] Pre-tokenizers
-- [ ] Trainers
-- [ ] Models
-- [ ] Normalizers

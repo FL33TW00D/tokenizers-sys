@@ -334,4 +334,40 @@ mod tests {
             assert!(handle.is_null());
         }
     }
+
+    #[test]
+    fn test_encoding_null_safety() {
+        unsafe {
+            assert_eq!(encoding_get_length(ptr::null()), 0);
+            let mut len = 0;
+            assert!(encoding_get_ids(ptr::null(), &mut len).is_null());
+            assert!(encoding_get_tokens(ptr::null(), &mut len).is_null());
+            assert!(encoding_get_type_ids(ptr::null(), &mut len).is_null());
+            assert!(encoding_get_special_tokens_mask(ptr::null(), &mut len).is_null());
+            assert!(encoding_get_attention_mask(ptr::null(), &mut len).is_null());
+            assert!(encoding_get_overflowing(ptr::null(), &mut len).is_null());
+        }
+    }
+
+    #[test]
+    fn test_empty_inputs() {
+        unsafe {
+            let handle = create_test_tokenizer();
+            let empty = CString::new("").unwrap();
+            let encoding = tokenizer_encode(handle, empty.as_ptr(), true);
+            if !encoding.is_null() {
+                encoding_free(encoding);
+            }
+            tokenizer_free(handle);
+        }
+    }
+
+    #[test]
+    fn test_cleanup_null_safety() {
+        unsafe {
+            free_rstring(ptr::null_mut());
+            free_c_char_array(ptr::null_mut(), 0);
+            free_encoding_array(ptr::null_mut(), 0);
+        }
+    }
 }

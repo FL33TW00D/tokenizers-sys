@@ -10,3 +10,4 @@ zig-out/
 /build-*/
 /docgen_tmp/
 **/*.dylib
+tokenizers-go-example
